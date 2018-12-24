@@ -1,0 +1,91 @@
+<html>
+
+<head>
+    <title>Tic tac toe</title>
+    <style>
+        table {
+            border: 1px solid black
+        }
+        td {
+            border: 2px solid black
+        }
+        button {
+            height: 30px;
+            width: 30px;
+        }
+        </style>
+</head>
+
+<body>
+    <h1>Tic tac toe</h1>
+    <h3>Who's turn is it?</h3>
+    <p id="player">X</p>
+    <h3>Game</h3>
+    <table>
+        <tr>
+            <td>
+                <button type="button" onclick="doThing(this)" id='00'> </button>
+            </td>
+            <td>
+                <button type="button" onclick="doThing(this)" id='01'> </button>
+            </td>
+            <td>
+                <button type="button" onclick="doThing(this)" id='02'> </button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type="button" onclick="doThing(this)" id='10'> </button>
+            </td>
+            <td>
+                <button type="button" onclick="doThing(this)" id='11'> </button>
+            </td>
+            <td>
+                <button type="button" onclick="doThing(this)" id='12'> </button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type="button" onclick="doThing(this)" id='20'> </button>
+            </td>
+            <td>
+                <button type="button" onclick="doThing(this)" id='21'> </button>
+            </td>
+            <td>
+                <button type="button" onclick="doThing(this)" id='22'> </button>
+            </td>
+        </tr>
+    </table>
+
+    <script>
+        function doThing(button) {
+            player = document.getElementById('player')
+            button.innerHTML = player.innerHTML
+            player.innerHTML = player.innerHTML === 'X' ? 'O' : 'X'
+            button.disabled = true
+            checkForWin()
+        }
+        function checkForWin() {
+            const lines = [['00', '01', '02'], ['10', '11', '12'], ['20', '21', '22'],
+            ['00', '01', '02'], ['10', '11', '12'], ['20', '21', '22'],
+            ['00', '11', '22'], ['02', '11', '20']
+            ]
+            for (line of lines) {
+                console.log('line is, ', line)
+                if (isLineWinning(line)) {
+                    alert('someone won')
+                    return
+                }
+            }
+            return
+        }
+
+        function isLineWinning(line) {
+            return ['X', 'O'].includes(document.getElementById(line[0]).innerHTML) &&
+                document.getElementById(line[0]).innerHTML === document.getElementById(line[1]).innerHTML &&
+                document.getElementById(line[1]).innerHTML === document.getElementById(line[2]).innerHTML
+        }
+    </script>
+</body>
+
+</html>
