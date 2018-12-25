@@ -1,6 +1,4 @@
-
-
-function handleClick(button) {
+const handleClick = (button) => {
     player = document.getElementById('player')
     button.innerHTML = player.innerHTML
     button.disabled = true
@@ -10,7 +8,7 @@ function handleClick(button) {
 }
 
 
-function checkForDraw() {
+const checkForDraw = () => {
     buttons = document.getElementsByTagName('button')
 
     // Can't be drawn if there's a gap
@@ -34,7 +32,7 @@ function checkForDraw() {
 }
 
 
-function checkForWin() {
+const checkForWin = () => {
     const lines = [
         ['00', '01', '02'], ['10', '11', '12'], ['20', '21', '22'],
         ['00', '10', '20'], ['01', '11', '21'], ['02', '12', '22'],
@@ -50,7 +48,7 @@ function checkForWin() {
 }
 
 
-function disableEverything() {
+const disableEverything = () => {
     // Disable the remaining buttons
     buttons = document.getElementsByTagName('button')
     for (button of buttons) {
@@ -59,7 +57,7 @@ function disableEverything() {
 }
 
 
-function handleWin() {
+const handleWin = () => {
     const player = document.getElementById('player').innerHTML
 
     // Show winner
@@ -75,7 +73,7 @@ function handleWin() {
 }
 
 
-function reset() {
+const reset = () => {
     const buttons = document.getElementsByTagName('button')
     for (button of buttons) {
         button.disabled = false
@@ -90,7 +88,7 @@ function reset() {
 }
 
 
-function drawPlayAgain() {
+const drawPlayAgain = () => {
     var para = document.createElement("button")
     para.className = 'playAgain'
     para.id = 'play_again'
@@ -103,7 +101,7 @@ function drawPlayAgain() {
 }
 
 
-function isLineWinning(line) {
+const isLineWinning = (line) => {
     return ['X', 'O'].includes(document.getElementById(line[0]).innerHTML) &&
         document.getElementById(line[0]).innerHTML === document.getElementById(line[1]).innerHTML &&
         document.getElementById(line[1]).innerHTML === document.getElementById(line[2]).innerHTML
