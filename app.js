@@ -5,4 +5,4 @@ const port = 3000
 app.use(express.static('.'))
 app.get('/', (req, res) => res.redirect('/tic_tac_toe.html'))
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+app.listen(port, () => console.log(`App listening on port ${port}!`))
