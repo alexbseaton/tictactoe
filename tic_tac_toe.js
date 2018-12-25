@@ -19,6 +19,7 @@ const checkForDraw = () => {
             return
     }
 
+    // It's a draw
     var para = document.createElement("p")
     var node = document.createTextNode("Game is drawn.")
     para.appendChild(node)
