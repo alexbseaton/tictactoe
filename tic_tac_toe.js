@@ -61,6 +61,10 @@ const disableEverything = () => {
 const handleWin = () => {
     const player = document.getElementById('player').innerHTML
 
+    // Update score
+    const currentScore = document.getElementById(`${player}_score`)
+    currentScore.innerHTML = parseInt(currentScore.innerHTML) + 1
+
     // Show winner
     var para = document.createElement("p")
     var node = document.createTextNode(`Player with ${player}'s won.`)
