@@ -2,7 +2,7 @@ Run
 
 `npm install express --save`
 
-`npm app.js`
+`node app.js`
 
 Navigate to
 

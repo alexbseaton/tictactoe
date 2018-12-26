@@ -8,39 +8,46 @@
 <body>
     <div id="parent">
         <h1>Tic tac toe</h1>
+        <form method="post">
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="user_name">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
         <p id="player" class="hidden">X</p>
         <table>
             <tr>
                 <td>
-                    <button type="button" onclick="handleClick(this)" id='00'> </button>
+                    <button type="button" onclick="handleClick(this)" id='00' class="square"> </button>
                 </td>
                 <td>
-                    <button type="button" onclick="handleClick(this)" id='01'> </button>
+                    <button type="button" onclick="handleClick(this)" id='01' class="square"> </button>
                 </td>
                 <td>
-                    <button type="button" onclick="handleClick(this)" id='02'> </button>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <button type="button" onclick="handleClick(this)" id='10'> </button>
-                </td>
-                <td>
-                    <button type="button" onclick="handleClick(this)" id='11'> </button>
-                </td>
-                <td>
-                    <button type="button" onclick="handleClick(this)" id='12'> </button>
+                    <button type="button" onclick="handleClick(this)" id='02' class="square"> </button>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <button type="button" onclick="handleClick(this)" id='20'> </button>
+                    <button type="button" onclick="handleClick(this)" id='10' class="square"> </button>
                 </td>
                 <td>
-                    <button type="button" onclick="handleClick(this)" id='21'> </button>
+                    <button type="button" onclick="handleClick(this)" id='11' class="square"> </button>
                 </td>
                 <td>
-                    <button type="button" onclick="handleClick(this)" id='22'> </button>
+                    <button type="button" onclick="handleClick(this)" id='12' class="square"> </button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="button" onclick="handleClick(this)" id='20' class="square"> </button>
+                </td>
+                <td>
+                    <button type="button" onclick="handleClick(this)" id='21' class="square"> </button>
+                </td>
+                <td>
+                    <button type="button" onclick="handleClick(this)" id='22' class="square"> </button>
                 </td>
             </tr>
         </table>

@@ -27,7 +27,7 @@ caption {
     color: white;
     font-size: 24px;
 }
-button {
+.square {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     height: 100px;
     width: 100px;
@@ -70,4 +70,8 @@ body {
 
 #parent {
     width: 310px;
+}
+
+body {
+    color: white;
 }
