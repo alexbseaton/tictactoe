@@ -13,11 +13,15 @@ io.on('connection', socket => {
         console.log('button was pressed', msg)
         socket.broadcast.emit('button press', msg)
     })
+    socket.on('reset', () => {
+        console.log('reset signal received')
+        socket.broadcast.emit('reset')
+    })
 });
 
 const port = 3000
 
-http.listen(port, function () {
+http.listen(port, () => {
     console.log('listening on *:' + port);
 });
 

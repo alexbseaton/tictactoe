@@ -5,12 +5,17 @@ socket.on('button press', event => {
     handleClick(event.id, event.player, true)
 })
 
+socket.on('reset', () => reset())
+
 const handleClick = (id, p, suppressEmit) => {
     const player = p ? p : document.getElementById('player').innerHTML
     const button = document.getElementById(id)
 
     console.log('id is ', id)
-    const msg = { id: id, player: player }
+    const msg = {
+        id: id,
+        player: player
+    }
 
     if (!suppressEmit)
         socket.emit('button press', msg)
@@ -50,9 +55,14 @@ const checkForDraw = () => {
 
 const checkForWin = () => {
     const lines = [
-        ['00', '01', '02'], ['10', '11', '12'], ['20', '21', '22'],
-        ['00', '10', '20'], ['01', '11', '21'], ['02', '12', '22'],
-        ['00', '11', '22'], ['02', '11', '20']
+        ['00', '01', '02'],
+        ['10', '11', '12'],
+        ['20', '21', '22'],
+        ['00', '10', '20'],
+        ['01', '11', '21'],
+        ['02', '12', '22'],
+        ['00', '11', '22'],
+        ['02', '11', '20']
     ]
     for (line of lines) {
         console.log('line is, ', line)
@@ -93,8 +103,13 @@ const handleWin = () => {
 }
 
 
-const reset = () => {
-    const buttons = document.getElementsByTagName('button')
+const reset = (event) => {
+    if (!event) {
+        console.log('emitting reset event')
+        socket.emit('reset')
+    }
+
+    const buttons = document.getElementsByClassName('square')
     for (button of buttons) {
         button.disabled = false
         button.innerHTML = ''
