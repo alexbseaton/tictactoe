@@ -1,10 +1,25 @@
-const handleClick = (button) => {
-    player = document.getElementById('player')
-    button.innerHTML = player.innerHTML
+const socket = io()
+
+socket.on('button press', event => {
+    console.log('client got message from server', event)
+    handleClick(event.id, event.player, true)
+})
+
+const handleClick = (id, p, suppressEmit) => {
+    const player = p ? p : document.getElementById('player').innerHTML
+    const button = document.getElementById(id)
+
+    console.log('id is ', id)
+    const msg = { id: id, player: player }
+
+    if (!suppressEmit)
+        socket.emit('button press', msg)
+
+    button.innerHTML = player
     button.disabled = true
     checkForWin()
     checkForDraw()
-    player.innerHTML = player.innerHTML === 'X' ? 'O' : 'X'
+    document.getElementById('player').innerHTML = player === 'X' ? 'O' : 'X'
 }
 
 

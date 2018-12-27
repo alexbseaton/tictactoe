@@ -19,35 +19,35 @@
         <table>
             <tr>
                 <td>
-                    <button type="button" onclick="handleClick(this)" id='00' class="square"> </button>
+                    <button type="button" onclick="handleClick('00')" id='00' class="square"> </button>
                 </td>
                 <td>
-                    <button type="button" onclick="handleClick(this)" id='01' class="square"> </button>
+                    <button type="button" onclick="handleClick('01')" id='01' class="square"> </button>
                 </td>
                 <td>
-                    <button type="button" onclick="handleClick(this)" id='02' class="square"> </button>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <button type="button" onclick="handleClick(this)" id='10' class="square"> </button>
-                </td>
-                <td>
-                    <button type="button" onclick="handleClick(this)" id='11' class="square"> </button>
-                </td>
-                <td>
-                    <button type="button" onclick="handleClick(this)" id='12' class="square"> </button>
+                    <button type="button" onclick="handleClick('02')" id='02' class="square"> </button>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <button type="button" onclick="handleClick(this)" id='20' class="square"> </button>
+                    <button type="button" onclick="handleClick('10')" id='10' class="square"> </button>
                 </td>
                 <td>
-                    <button type="button" onclick="handleClick(this)" id='21' class="square"> </button>
+                    <button type="button" onclick="handleClick('11')" id='11' class="square"> </button>
                 </td>
                 <td>
-                    <button type="button" onclick="handleClick(this)" id='22' class="square"> </button>
+                    <button type="button" onclick="handleClick('12')" id='12' class="square"> </button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="button" onclick="handleClick('20')" id='20' class="square"> </button>
+                </td>
+                <td>
+                    <button type="button" onclick="handleClick('21')" id='21' class="square"> </button>
+                </td>
+                <td>
+                    <button type="button" onclick="handleClick('22')" id='22' class="square"> </button>
                 </td>
             </tr>
         </table>
@@ -67,8 +67,10 @@
             <div id="result"></div>
         </div>
 
-        <script src="tic_tac_toe.js"></script>
     </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="tic_tac_toe.js"></script>
+    <script>io()</script>
 </body>
 
 </html>

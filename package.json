@@ -1,14 +1,12 @@
 {
   "name": "shit_website",
   "version": "1.0.0",
-  "description": "",
   "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
+  "repository": "git@github.com:alexbseaton/tictactoe.git",
+  "author": "Alex <flyingredd@yahoo.co.uk>",
+  "license": "MIT",
   "dependencies": {
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "socket.io": "^2.2.0"
   }
 }

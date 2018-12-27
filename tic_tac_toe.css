@@ -69,9 +69,11 @@ body {
 }
 
 #parent {
-    width: 310px;
+    margin: 0 auto;
+    width: 50%;
 }
 
 body {
     color: white;
+    text-align: center;
 }
