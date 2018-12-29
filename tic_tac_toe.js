@@ -104,7 +104,8 @@ const handleWin = () => {
 
 
 const reset = (event) => {
-    if (!event) {
+    console.log('resetting- event was, ', event)
+    if (event) {
         console.log('emitting reset event')
         socket.emit('reset')
     }
