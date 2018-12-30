@@ -3,22 +3,19 @@ console.log(`Room is ${room}`)
 
 const socket = io()
 
-socket.on('button press', event => {
+const roomMatcher = fn => event => {
+    // FIXME this is naff... socketio has built in ways to do this
     console.log('client got message from server', event)
     if (event.room !== room) {
         console.log(`event.room ${event.room} does not match room ${room}`)
         return
     }
-    handleClick(event.id, event.player, true)
-})
+    fn(event)
+}
 
-socket.on('reset', event => {
-    if (!event.room !== room) {
-        console.log(`event.room ${event.room} does not match room ${room}`)
-        return
-    }
-    reset()
-})
+socket.on('button press', roomMatcher(event => handleClick(event.id, event.player, true)))
+
+socket.on('reset', roomMatcher((event) => reset()))
 
 const handleClick = (id, p, suppressEmit) => {
     const player = p ? p : document.getElementById('player').innerHTML
