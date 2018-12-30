@@ -14,7 +14,6 @@ const roomMatcher = fn => event => {
 }
 
 socket.on('button press', roomMatcher(event => handleClick(event.id, event.player, true)))
-
 socket.on('reset', roomMatcher((event) => reset()))
 
 const handleClick = (id, p, suppressEmit) => {
