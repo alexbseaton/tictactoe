@@ -13,9 +13,11 @@ io.on('connection', socket => {
         console.log('button was pressed', msg)
         socket.broadcast.emit('button press', msg)
     })
-    socket.on('reset', () => {
+    socket.on('reset', msg => {
         console.log('reset signal received')
-        socket.broadcast.emit('reset')
+        socket.broadcast.emit('reset', {
+            room: msg.room
+        })
     })
 });
 
@@ -31,7 +33,14 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 
-app.get('/', (req, res) => res.redirect('/tic_tac_toe.html'))
+app.get('/', (req, res) => res.redirect('/index.html'))
+
+app.get('/room=:room', (req, res) => {
+    console.log('Request sent to room', req.params.room)
+    res.sendFile('./tic_tac_toe.html', {
+        root: __dirname
+    })
+})
 
 app.post('/tic_tac_toe.html', (req, res) => {
     const user_name = req.body.user_name

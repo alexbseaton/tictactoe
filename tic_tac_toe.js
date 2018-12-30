@@ -1,11 +1,24 @@
+const room = window.location.pathname.split('room=')[1];
+console.log(`Room is ${room}`)
+
 const socket = io()
 
 socket.on('button press', event => {
     console.log('client got message from server', event)
+    if (event.room !== room) {
+        console.log(`event.room ${event.room} does not match room ${room}`)
+        return
+    }
     handleClick(event.id, event.player, true)
 })
 
-socket.on('reset', () => reset())
+socket.on('reset', event => {
+    if (!event.room !== room) {
+        console.log(`event.room ${event.room} does not match room ${room}`)
+        return
+    }
+    reset()
+})
 
 const handleClick = (id, p, suppressEmit) => {
     const player = p ? p : document.getElementById('player').innerHTML
@@ -14,7 +27,8 @@ const handleClick = (id, p, suppressEmit) => {
     console.log('id is ', id)
     const msg = {
         id: id,
-        player: player
+        player: player,
+        room: room
     }
 
     if (!suppressEmit)
@@ -107,7 +121,9 @@ const reset = (event) => {
     console.log('resetting- event was, ', event)
     if (event) {
         console.log('emitting reset event')
-        socket.emit('reset')
+        socket.emit('reset', {
+            room: room
+        })
     }
 
     const buttons = document.getElementsByClassName('square')
